@@ -1,0 +1,60 @@
+---
+import Email from "../items/Email.astro";
+import LinkedinItem from "../items/LinkedinItem.astro";
+---
+
+<footer class="reveal pb-16 pt-6">
+  <div class="contact-card text-center">
+    <span class="section-eyebrow"><span class="lang-en">LET'S BUILD</span><span class="lang-es">CONSTRUYAMOS</span></span>
+    <h2 class="mt-3 text-4xl font-black tracking-tight text-gray-950 sm:text-6xl"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></h2>
+    <p class="lang-en mx-auto mt-4 max-w-xl text-gray-600">I’m currently open to software development, automation and solutions-oriented opportunities.</p>
+    <p class="lang-es mx-auto mt-4 max-w-xl text-gray-600">Actualmente estoy abierto a oportunidades orientadas a desarrollo de software, automatización y diseño de soluciones.</p>
+
+    <div class="mt-7 flex flex-wrap justify-center gap-4">
+      <a class="contact-link ring-purple" href="mailto:andresurrutia32@gmail.com">andresurrutia32@gmail.com <Email class="size-6" /></a>
+      <a class="contact-link ring-green" href="https://www.linkedin.com/in/fabi%C3%A1n-urrutia-ab328b2aa" target="_blank" rel="noopener">LinkedIn <LinkedinItem class="size-6" /></a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .contact-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e5e5e8;
+    border-radius: 1.35rem;
+    padding: 2.5rem 1.2rem;
+    background: #fff;
+    box-shadow: 0 18px 44px rgba(17,17,17,.065);
+  }
+
+  .contact-card::before,
+  .contact-card::after {
+    content: '';
+    position: absolute;
+    width: 7rem;
+    height: 2.5rem;
+    opacity: .12;
+    pointer-events: none;
+  }
+
+  .contact-card::before { left: -1rem; top: 1.2rem; background: var(--red); transform: rotate(-8deg); }
+  .contact-card::after { right: -1rem; bottom: 1rem; background: var(--purple); transform: rotate(7deg); }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    border: 1px solid #e1e1e4;
+    border-radius: .78rem;
+    padding: .75rem 1rem;
+    font-weight: 820;
+    color: #202126;
+    background: white;
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  }
+
+  .contact-link:hover { transform: translateY(-3px); }
+  .ring-purple:hover { border-color: var(--purple); box-shadow: 0 12px 28px rgba(104,71,168,.14); }
+  .ring-green:hover { border-color: var(--green); box-shadow: 0 12px 28px rgba(47,125,90,.14); }
+</style>

@@ -1,0 +1,128 @@
+---
+import BriefcaseItem from "../items/BriefcaseItem.astro";
+import ArticleItem from "../items/ArticleItem.astro";
+---
+
+<div class="reveal">
+  <div class="mb-12 text-center">
+    <span class="section-eyebrow"><span class="lang-en">CAREER</span><span class="lang-es">TRAYECTORIA</span></span>
+    <h2 class="mt-3 text-4xl font-black tracking-tight text-gray-950 sm:text-6xl"><span class="lang-en">Experience</span><span class="lang-es">Experiencia</span></h2>
+    <p class="lang-en mx-auto mt-4 max-w-2xl text-gray-600">Professional experience combining software delivery, automation, client collaboration and solution design.</p>
+    <p class="lang-es mx-auto mt-4 max-w-2xl text-gray-600">Experiencia profesional combinando desarrollo de software, automatización, trabajo con clientes y diseño de soluciones.</p>
+  </div>
+
+  <ol class="timeline relative ml-3 border-l border-gray-200 sm:ml-5">
+    <li class="timeline-item mb-10 ml-7">
+      <span class="timeline-dot dot-purple"></span>
+      <article class="experience-card ring-purple">
+        <div class="mb-4 flex flex-wrap items-start justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <BriefcaseItem class="size-7" />
+            <div>
+              <h3 class="text-2xl font-bold text-gray-950 sm:text-3xl">Software Developer Junior · 5IG Solutions</h3>
+              <p class="lang-en mt-1 text-sm font-semibold text-purple-700">Full-Stack · Automation · Solution Design</p>
+              <p class="lang-es mt-1 text-sm font-semibold text-purple-700">Full-Stack · Automatización · Diseño de Soluciones</p>
+            </div>
+          </div>
+          <time class="date-pill"><span class="lang-en">Feb 2025 — Present</span><span class="lang-es">Feb 2025 — Actualidad</span></time>
+        </div>
+
+        <ul class="experience-list">
+          <li><span class="lang-en">Design and build web solutions, automations and integrations with Node.js, React, Next.js, Python, SQL, Power Automate, AppSheet and related tools.</span><span class="lang-es">Diseño y desarrollo de soluciones web, automatizaciones e integraciones con Node.js, React, Next.js, Python, SQL, Power Automate, AppSheet y herramientas relacionadas.</span></li>
+          <li><span class="lang-en">Participate in technical and commercial meetings for requirements discovery, process analysis and solution definition.</span><span class="lang-es">Participación en reuniones técnicas y comerciales para levantamiento de requerimientos, análisis de procesos y definición de soluciones.</span></li>
+          <li><span class="lang-en">Support technical pre-sales through architecture diagrams, technology selection, implementation alternatives and infrastructure decisions.</span><span class="lang-es">Apoyo en preventa técnica mediante diagramas de arquitectura, selección de tecnologías, alternativas de implementación y decisiones de infraestructura.</span></li>
+          <li><span class="lang-en">Create timelines, effort estimates, phases, dependencies and delivery plans for software projects.</span><span class="lang-es">Elaboración de timelines, estimaciones de esfuerzo, fases, dependencias y planes de entrega para proyectos de software.</span></li>
+          <li><span class="lang-en">Contribute to technical and commercial proposals, implementation strategy, documentation and knowledge transfer.</span><span class="lang-es">Participación en propuestas técnicas y comerciales, estrategia de implementación, documentación y transferencia de conocimiento.</span></li>
+        </ul>
+      </article>
+    </li>
+
+    <li class="timeline-item mb-10 ml-7">
+      <span class="timeline-dot dot-red"></span>
+      <article class="experience-card ring-red">
+        <div class="mb-3 flex flex-wrap items-start justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <ArticleItem class="size-7" />
+            <div>
+              <h3 class="text-2xl font-bold text-gray-950 sm:text-3xl"><span class="lang-en">Research Internship · Universidad del Valle</span><span class="lang-es">Pasantía de Investigación · Universidad del Valle</span></h3>
+              <p class="lang-en mt-1 text-sm font-semibold text-red-700">AI-assisted microservice architecture research</p>
+              <p class="lang-es mt-1 text-sm font-semibold text-red-700">Investigación en arquitectura de microservicios asistida por IA</p>
+            </div>
+          </div>
+          <time class="date-pill">Mar 2023 — Jul 2023</time>
+        </div>
+        <p class="lang-en leading-relaxed text-gray-700">Used the OpenAI API to support microservice generation from product backlogs, evaluated architecture results with defined metrics and built an interactive interface for exploring generated services.</p>
+        <p class="lang-es leading-relaxed text-gray-700">Utilicé la API de OpenAI para apoyar la generación de microservicios a partir de product backlogs, evalué resultados de arquitectura con métricas definidas y construí una interfaz interactiva para explorar los servicios generados.</p>
+      </article>
+    </li>
+
+    <li class="timeline-item ml-7">
+      <span class="timeline-dot dot-green"></span>
+      <article class="experience-card ring-green">
+        <div class="mb-3 flex flex-wrap items-start justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <BriefcaseItem class="size-7" />
+            <div>
+              <h3 class="text-2xl font-bold text-gray-950 sm:text-3xl"><span class="lang-en">Socioeducational Monitor</span><span class="lang-es">Monitor Socioeducativo</span></h3>
+              <p class="mt-1 text-sm font-semibold text-green-700">Universidad del Valle</p>
+            </div>
+          </div>
+          <time class="date-pill"><span class="lang-en">Nov 2022 — Dec 2023</span><span class="lang-es">Nov 2022 — Dic 2023</span></time>
+        </div>
+        <p class="lang-en leading-relaxed text-gray-700">Supported first-year Systems Engineering students through academic and socioeducational mentoring.</p>
+        <p class="lang-es leading-relaxed text-gray-700">Acompañé a estudiantes de primer semestre de Ingeniería de Sistemas mediante mentoría académica y socioeducativa.</p>
+      </article>
+    </li>
+  </ol>
+</div>
+
+<style>
+  .timeline-dot {
+    position: absolute;
+    left: -.53rem;
+    width: .95rem;
+    height: .95rem;
+    border: 3px solid #fff;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 1px #d9d9dd;
+  }
+
+  .dot-purple { background: var(--purple); }
+  .dot-red { background: var(--red); }
+  .dot-green { background: var(--green); }
+
+  .experience-card {
+    border: 1px solid #e7e7e9;
+    border-radius: 1.1rem;
+    padding: 1.35rem;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 12px 34px rgba(17,17,17,.048);
+    transition: transform .27s cubic-bezier(.2,.75,.2,1), box-shadow .27s ease;
+  }
+
+  .experience-card:hover { transform: translateY(-4px); box-shadow: 0 22px 46px rgba(17,17,17,.085); }
+  .ring-purple { border-top: 3px solid var(--purple); }
+  .ring-red { border-top: 3px solid var(--red); }
+  .ring-green { border-top: 3px solid var(--green); }
+
+  .date-pill {
+    flex-shrink: 0;
+    border-radius: 9999px;
+    padding: .45rem .7rem;
+    font-size: .74rem;
+    font-weight: 800;
+    color: #5d626c;
+    background: #f5f5f6;
+  }
+
+  .experience-list {
+    display: grid;
+    gap: .65rem;
+    margin-top: .8rem;
+    padding-left: 1.15rem;
+    color: #555b66;
+    line-height: 1.58;
+  }
+
+  .experience-list li::marker { color: var(--purple); }
+</style>

@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Projects from '../components/Projects.astro';
+import Tech from "../components/Tech.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout title="Fabián Urrutia | Software Developer & Solutions">
+  <main class="px-4 sm:px-6">
+    <SectionContainer id="about">
+      <About />
+    </SectionContainer>
+    <SectionContainer id="exp">
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="projects">
+      <Projects />
+    </SectionContainer>
+    <SectionContainer id="tech">
+      <Tech />
+    </SectionContainer>
+    <SectionContainer id="contact">
+      <Contact />
+    </SectionContainer>
+  </main>
+</Layout>

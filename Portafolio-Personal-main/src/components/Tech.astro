@@ -1,0 +1,71 @@
+---
+const groups = [
+  {
+    title: { en: 'Frontend', es: 'Frontend' },
+    accent: 'tech-red',
+    items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Astro', 'Tailwind', 'Bootstrap']
+  },
+  {
+    title: { en: 'Backend & Data', es: 'Backend y Datos' },
+    accent: 'tech-green',
+    items: ['Node.js', 'Express', 'Python', 'Django', 'Flask', 'Java', 'Spring Boot', 'MySQL', 'PostgreSQL', 'SQLite']
+  },
+  {
+    title: { en: 'Automation & Integrations', es: 'Automatización e Integraciones' },
+    accent: 'tech-purple',
+    items: ['Power Automate', 'Office Scripts', 'AppSheet', 'REST APIs', 'Webhooks', 'Twilio', 'QuickBooks', 'SharePoint']
+  },
+  {
+    title: { en: 'Delivery & Solution Design', es: 'Entrega y Diseño de Soluciones' },
+    accent: 'tech-black',
+    items: ['Git', 'GitHub', 'Scrum', 'Requirements Discovery', 'Timelines', 'Effort Estimation', 'Technical Proposals', 'Documentation']
+  }
+];
+---
+
+<div class="reveal mb-10">
+  <div class="mb-10 text-center">
+    <span class="section-eyebrow"><span class="lang-en">TOOLKIT</span><span class="lang-es">HERRAMIENTAS</span></span>
+    <h2 class="mt-3 text-4xl font-black tracking-tight text-gray-950 sm:text-6xl"><span class="lang-en">Tech I Use</span><span class="lang-es">Tecnologías que Uso</span></h2>
+    <p class="lang-en mx-auto mt-4 max-w-2xl text-gray-600">Technologies I use to move from requirements and architecture to implementation and delivery.</p>
+    <p class="lang-es mx-auto mt-4 max-w-2xl text-gray-600">Tecnologías que utilizo para pasar de requerimientos y arquitectura a implementación y entrega.</p>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    {groups.map((group) => (
+      <article class:list={["tech-card", group.accent]}>
+        <h3 class="text-xl font-extrabold text-gray-950"><span class="lang-en">{group.title.en}</span><span class="lang-es">{group.title.es}</span></h3>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {group.items.map((item) => <span class="skill-pill">{item}</span>)}
+        </div>
+      </article>
+    ))}
+  </div>
+</div>
+
+<style>
+  .tech-card {
+    border: 1px solid #e8e8ea;
+    border-radius: 1.05rem;
+    padding: 1.25rem;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 12px 30px rgba(17,17,17,.045);
+    transition: transform .27s ease, box-shadow .27s ease;
+  }
+
+  .tech-card:hover { transform: translateY(-4px); box-shadow: 0 20px 42px rgba(17,17,17,.085); }
+  .tech-red { border-top: 3px solid var(--red); }
+  .tech-green { border-top: 3px solid var(--green); }
+  .tech-purple { border-top: 3px solid var(--purple); }
+  .tech-black { border-top: 3px solid var(--ink); }
+
+  .skill-pill {
+    border-radius: 9999px;
+    border: 1px solid #e9e9eb;
+    padding: .42rem .62rem;
+    font-size: .76rem;
+    font-weight: 750;
+    color: #535863;
+    background: #fafafa;
+  }
+</style>

@@ -1,0 +1,223 @@
+---
+import Socials from "./Socials.astro";
+import LinkedinItem from "../items/LinkedinItem.astro";
+import GithubItem from "../items/GithubItem.astro";
+import FileItem from "../items/FileItem.astro";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
+---
+
+<div class="hero reveal pt-16 sm:pt-24">
+  <div class="hero-main grid gap-12 lg:grid-cols-[1.08fr_.92fr] lg:items-center">
+    <div>
+      <div class="mb-5 flex flex-wrap items-center gap-3">
+        <span class="status-pill">
+          <span class="status-dot"></span>
+          <span class="lang-en">OPEN TO WORK</span>
+          <span class="lang-es">DISPONIBLE PARA TRABAJAR</span>
+        </span>
+        <span class="role-pill">
+          <span class="lang-en">Software · Automation · Solutions</span>
+          <span class="lang-es">Software · Automatización · Soluciones</span>
+        </span>
+      </div>
+
+      <span class="profession-label"><span class="lang-en">SYSTEMS ENGINEER</span><span class="lang-es">INGENIERO DE SISTEMAS</span></span>
+      <h1 class="hero-name mt-3 text-5xl leading-[.96] text-gray-950 sm:text-7xl">Fabián Andrés<br />Urrutia</h1>
+
+      <p class="lang-en mt-7 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+        Systems Engineer with 2 years of professional experience building software solutions through development, automation, integrations, technical discovery and solution design.
+      </p>
+      <p class="lang-es mt-7 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+        Ingeniero de Sistemas con 2 años de experiencia profesional construyendo soluciones de software mediante desarrollo, automatización, integraciones, discovery técnico y diseño de soluciones.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a class="primary-cta" href="#projects"><span class="lang-en">View projects</span><span class="lang-es">Ver proyectos</span> →</a>
+        <a class="secondary-cta" href="#contact"><span class="lang-en">Contact me</span><span class="lang-es">Contactarme</span></a>
+      </div>
+
+      <nav class="mt-7 flex flex-wrap items-center gap-3">
+        <Socials class="social-button social-purple" href="https://www.linkedin.com/in/fabi%C3%A1n-urrutia-ab328b2aa">LinkedIn <LinkedinItem class="size-5" /></Socials>
+        <Socials class="social-button social-black" href="https://github.com/fauchx">GitHub <GithubItem class="size-5" /></Socials>
+        <Socials class="social-button social-green" href="https://drive.google.com/file/d/1e0rLYR5mrsTPSpqb5RADNA_YrTNN6mWd/view?usp=sharing"><span class="lang-en">CV</span><span class="lang-es">Hoja de vida</span><FileItem class="size-5" /></Socials>
+      </nav>
+    </div>
+
+    <div class="portrait-wrap relative mx-auto w-full max-w-md">
+      <div class="portrait-art art-block-red" aria-hidden="true"></div>
+      <div class="portrait-art art-block-purple" aria-hidden="true"></div>
+      <div class="portrait-art art-block-green" aria-hidden="true"></div>
+      <div class="portrait-line portrait-line-one" aria-hidden="true"></div>
+      <div class="portrait-line portrait-line-two" aria-hidden="true"></div>
+      <img class="img-photo relative z-10 w-full object-cover" src="/yo.jpg" alt="Fabián Andrés Urrutia" />
+      <div class="experience-badge">
+        <span class="badge-dot"></span>
+        <div>
+          <strong><span class="lang-en">2 years</span><span class="lang-es">2 años</span></strong>
+          <span class="lang-en">professional experience</span><span class="lang-es">de experiencia profesional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="capabilities mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <article class="capability-card accent-black">
+      <span class="capability-index">01</span>
+      <h2><span class="lang-en">Software Development</span><span class="lang-es">Desarrollo de Software</span></h2>
+      <p class="lang-en">Web applications, APIs, internal tools and tailored digital solutions.</p>
+      <p class="lang-es">Aplicaciones web, APIs, herramientas internas y soluciones digitales a la medida.</p>
+    </article>
+
+    <article class="capability-card accent-green">
+      <span class="capability-index">02</span>
+      <h2><span class="lang-en">Automation & Integrations</span><span class="lang-es">Automatización e Integraciones</span></h2>
+      <p class="lang-en">Connected platforms, optimized workflows and reduced manual work.</p>
+      <p class="lang-es">Conexión entre plataformas, optimización de flujos y reducción de tareas manuales.</p>
+    </article>
+
+    <article class="capability-card accent-red">
+      <span class="capability-index">03</span>
+      <h2><span class="lang-en">Client Collaboration</span><span class="lang-es">Trabajo con Clientes</span></h2>
+      <p class="lang-en">Requirements discovery, technical and commercial meetings, process analysis and solution definition.</p>
+      <p class="lang-es">Levantamiento de requerimientos, reuniones técnicas y comerciales, análisis de procesos y definición de soluciones.</p>
+    </article>
+
+    <article class="capability-card accent-purple">
+      <span class="capability-index">04</span>
+      <h2><span class="lang-en">Solution Design</span><span class="lang-es">Diseño de Soluciones</span></h2>
+      <p class="lang-en">Timelines, effort estimates, technical proposals, architecture support and documentation.</p>
+      <p class="lang-es">Timelines, estimaciones de esfuerzo, propuestas técnicas, apoyo en arquitectura y documentación.</p>
+    </article>
+  </div>
+
+  <div class="mt-7 flex flex-wrap gap-3 text-sm font-semibold text-gray-600">
+    <span class="language-chip"><span class="lang-en">Spanish · Native</span><span class="lang-es">Español · Nativo</span> <span class="fi fis fi-es"></span></span>
+    <span class="language-chip"><span class="lang-en">English · B2</span><span class="lang-es">Inglés · B2</span> <span class="fi fis fi-us"></span></span>
+    <span class="language-chip"><span class="lang-en">French · A2</span><span class="lang-es">Francés · A2</span> <span class="fi fis fi-fr"></span></span>
+  </div>
+</div>
+
+<style>
+  .hero-name { font-weight: 920; letter-spacing: -.055em; }
+  .profession-label { font-size: .72rem; font-weight: 850; letter-spacing: .22em; color: #4d515b; }
+
+  .status-pill,
+  .role-pill,
+  .language-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--line);
+    padding: .5rem .78rem;
+    font-size: .72rem;
+    font-weight: 800;
+    background: #fff;
+  }
+
+  .status-pill { color: var(--green); background: var(--green-soft); border-color: #dcece3; }
+  .role-pill { color: #515660; }
+  .status-dot,
+  .badge-dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--green); }
+
+  .primary-cta,
+  .secondary-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .78rem;
+    padding: .78rem 1rem;
+    font-weight: 820;
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  }
+
+  .primary-cta { color: #fff; background: var(--ink); box-shadow: 0 12px 24px rgba(17,17,17,.12); }
+  .secondary-cta { color: var(--ink); border: 1px solid #d7d7db; background: #fff; }
+  .primary-cta:hover { transform: translateY(-2px); box-shadow: 0 16px 28px rgba(17,17,17,.16); }
+  .secondary-cta:hover { transform: translateY(-2px); border-color: var(--purple); }
+
+  :global(.social-button) {
+    border: 1px solid var(--line);
+    border-radius: .72rem;
+    background: #fff;
+    color: var(--ink);
+    box-shadow: 0 8px 20px rgba(17,17,17,.04);
+  }
+
+  :global(.social-purple:hover) { box-shadow: 0 0 0 2px var(--purple-soft), 0 10px 24px rgba(104,71,168,.13); }
+  :global(.social-black:hover) { box-shadow: 0 0 0 2px #ececec, 0 10px 24px rgba(17,17,17,.12); }
+  :global(.social-green:hover) { box-shadow: 0 0 0 2px var(--green-soft), 0 10px 24px rgba(47,125,90,.13); }
+
+  .portrait-wrap { min-height: 31rem; }
+  .img-photo {
+    height: 31rem;
+    border-radius: 1.15rem;
+    border: 1px solid #e6e6e8;
+    box-shadow: 0 26px 60px rgba(17,17,17,.13);
+    transition: transform .45s cubic-bezier(.2,.75,.2,1), box-shadow .45s ease;
+  }
+  .portrait-wrap:hover .img-photo { transform: translateY(-4px); box-shadow: 0 34px 70px rgba(17,17,17,.17); }
+
+  .portrait-art { position: absolute; z-index: 0; }
+  .art-block-red { width: 8.5rem; height: 7rem; left: -2rem; top: 3.4rem; background: var(--red); opacity: .72; transform: rotate(-7deg); clip-path: polygon(6% 13%, 100% 0, 88% 83%, 0 100%); }
+  .art-block-purple { width: 7rem; height: 9.5rem; right: -1.7rem; bottom: 3rem; background: var(--purple); opacity: .68; transform: rotate(8deg); clip-path: polygon(14% 0, 100% 17%, 84% 100%, 0 78%); }
+  .art-block-green { width: 4.2rem; height: 4.2rem; left: -1rem; bottom: 2.1rem; border: 8px solid var(--green); opacity: .55; transform: rotate(15deg); }
+
+  .portrait-line { position: absolute; z-index: 20; border-left: 2px solid var(--ink); opacity: .45; }
+  .portrait-line-one { right: -1rem; top: 8rem; width: 4rem; height: 8rem; transform: rotate(24deg); }
+  .portrait-line-two { left: -1.4rem; top: 11rem; width: 3rem; height: 6rem; border-left-color: var(--red); transform: rotate(-22deg); }
+
+  .experience-badge {
+    position: absolute;
+    z-index: 30;
+    right: -1rem;
+    top: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: .7rem;
+    width: 11.2rem;
+    border: 1px solid #e5e5e8;
+    border-radius: 1rem;
+    padding: .9rem;
+    background: rgba(255,255,255,.97);
+    box-shadow: 0 16px 38px rgba(17,17,17,.12);
+  }
+
+  .experience-badge strong { display: block; font-size: 1.35rem; line-height: 1.1; color: var(--ink); }
+  .experience-badge span { display: block; font-size: .72rem; color: #6b7079; }
+
+  .capability-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e8e8ea;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    background: rgba(255,255,255,.95);
+    box-shadow: 0 10px 28px rgba(17,17,17,.045);
+    transition: transform .27s cubic-bezier(.2,.75,.2,1), box-shadow .27s ease, border-color .27s ease;
+  }
+
+  .capability-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(17,17,17,.085); }
+  .capability-card::before { content: ''; position: absolute; left: 0; top: 0; width: 4px; height: 100%; background: var(--ink); }
+  .accent-black::before { background: var(--ink); }
+  .accent-green::before { background: var(--green); }
+  .accent-red::before { background: var(--red); }
+  .accent-purple::before { background: var(--purple); }
+  .capability-index { font-size: .68rem; font-weight: 900; letter-spacing: .14em; color: #a0a3aa; }
+  .capability-card h2 { margin-top: .55rem; font-size: 1rem; font-weight: 850; color: var(--ink); }
+  .capability-card p { margin-top: .45rem; line-height: 1.55; color: #656b76; font-size: .9rem; }
+
+  .language-chip { color: #5b6069; padding: .42rem .7rem; }
+
+  @media (max-width: 1024px) {
+    .portrait-wrap { max-width: 24rem; min-height: 27rem; }
+    .img-photo { height: 27rem; }
+  }
+
+  @media (max-width: 640px) {
+    .hero-name { font-size: 3.2rem; }
+    .portrait-wrap { min-height: 24rem; max-width: 20rem; }
+    .img-photo { height: 24rem; }
+    .experience-badge { right: -.4rem; width: 10rem; }
+  }
+</style>

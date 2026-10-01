@@ -1,0 +1,110 @@
+<header class="sticky top-0 z-50 flex w-full justify-center px-3 py-4">
+  <div class="header-shell flex w-full max-w-6xl items-center justify-between gap-3">
+    <nav class="nav-shell flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-black/10 bg-white/90 px-2 py-2 shadow-[0_10px_35px_rgba(17,17,17,.06)] backdrop-blur-xl sm:gap-2">
+      <a class="nav-link" href="#about"><span class="lang-en">About</span><span class="lang-es">Inicio</span></a>
+      <a class="nav-link" href="#exp"><span class="lang-en">Experience</span><span class="lang-es">Experiencia</span></a>
+      <a class="nav-link" href="#projects"><span class="lang-en">Projects</span><span class="lang-es">Proyectos</span></a>
+      <a class="nav-link" href="#tech"><span class="lang-en">Tech</span><span class="lang-es">Tecnologías</span></a>
+      <a class="nav-link" href="#contact"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></a>
+    </nav>
+
+    <div class="language-switcher" aria-label="Language switcher / selector de idioma">
+      <button class="lang-btn active" data-lang-toggle="en" type="button" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang-toggle="es" type="button" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav-shell { scrollbar-width: none; }
+  .nav-shell::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    position: relative;
+    white-space: nowrap;
+    border-radius: 9999px;
+    padding: .55rem .8rem;
+    font-size: .82rem;
+    font-weight: 760;
+    color: #565b66;
+    transition: color .22s ease, background-color .22s ease, transform .22s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: .2rem;
+    width: 0;
+    height: 2px;
+    background: var(--purple);
+    transform: translateX(-50%);
+    transition: width .22s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--ink);
+    background: var(--purple-soft);
+    transform: translateY(-1px);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after { width: 1.15rem; }
+
+  .language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    padding: .32rem;
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 10px 28px rgba(17,17,17,.055);
+  }
+
+  .lang-btn {
+    border: none;
+    border-radius: 9999px;
+    padding: .5rem .68rem;
+    font-size: .76rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+    color: #6c7078;
+    background: transparent;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+
+  .lang-btn:hover { transform: translateY(-1px); }
+  .lang-btn.active { color: #fff; background: var(--ink); }
+
+  @media (max-width: 768px) {
+    .header-shell { flex-direction: column; justify-content: center; }
+  }
+
+  @media (min-width: 640px) {
+    .nav-link { padding: .6rem 1rem; font-size: .92rem; }
+  }
+</style>
+
+<script>
+  const links = [...document.querySelectorAll('.nav-link')];
+  const sections = links
+    .map((link) => document.querySelector(link.getAttribute('href') ?? ''))
+    .filter((section) => section !== null);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+      links.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${visible.target.id}`));
+    },
+    { rootMargin: '-30% 0px -55% 0px', threshold: [0, .2, .5] }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>

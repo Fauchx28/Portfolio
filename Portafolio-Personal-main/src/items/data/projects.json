@@ -1,0 +1,170 @@
+[
+  {
+    "name": { "en": "Conversational WhatsApp Platform", "es": "Plataforma Conversacional por WhatsApp" },
+    "subtitle": { "en": "Automation · scheduling · information management", "es": "Automatización · agendamiento · gestión de información" },
+    "content": {
+      "en": "Conversational software solution that automates service flows, scheduling, information capture and follow-up through WhatsApp.",
+      "es": "Solución de software conversacional que automatiza flujos de atención, agendamiento, captura de información y seguimiento mediante WhatsApp."
+    },
+    "details": {
+      "en": [
+        "Built backend flows for user identification, availability and conversational state management.",
+        "Integrated Twilio, REST APIs and webhooks with a MySQL data layer.",
+        "Implemented media handling and handoff flows for administrative users."
+      ],
+      "es": [
+        "Construcción de flujos backend para identificación de usuarios, disponibilidad y manejo del estado conversacional.",
+        "Integración de Twilio, APIs REST y webhooks con una capa de datos en MySQL.",
+        "Implementación de manejo de archivos y flujos de escalamiento hacia usuarios administrativos."
+      ]
+    },
+    "tech": ["Node.js", "Express", "MySQL", "Twilio", "REST APIs", "Webhooks"],
+    "category": "5ig",
+    "featured": true,
+    "avatar": "/projects/professional-whatsapp-workflow-ai.png",
+    "note": { "en": "Concept image generated with AI", "es": "Imagen conceptual generada con IA" },
+    "linkLabel": { "en": "Let’s talk", "es": "Hablemos" },
+    "url": "#contact"
+  },
+  {
+    "name": { "en": "Reporting & Process Automation", "es": "Automatización de Reportes y Procesos" },
+    "subtitle": { "en": "Reporting · workflows · document automation", "es": "Reportes · flujos · automatización documental" },
+    "content": {
+      "en": "Automated workflow for collecting, transforming and organizing business information into structured reports and deliverables.",
+      "es": "Flujo automatizado para recopilar, transformar y organizar información de negocio en reportes y entregables estructurados."
+    },
+    "details": {
+      "en": [
+        "Automated multiple recurring reports and data preparation steps.",
+        "Built Power Automate flows and Excel / Office Scripts transformations.",
+        "Organized generated outputs in SharePoint with support and handoff documentation."
+      ],
+      "es": [
+        "Automatización de múltiples reportes recurrentes y procesos de preparación de datos.",
+        "Construcción de flujos en Power Automate y transformaciones con Excel / Office Scripts.",
+        "Organización de entregables generados en SharePoint junto con documentación de soporte y handoff."
+      ]
+    },
+    "tech": ["Power Automate", "Office Scripts", "Excel", "QuickBooks", "SharePoint"],
+    "category": "5ig",
+    "featured": true,
+    "avatar": "/projects/professional-reporting-automation-ai.png",
+    "note": { "en": "Concept image generated with AI", "es": "Imagen conceptual generada con IA" },
+    "linkLabel": { "en": "Let’s talk", "es": "Hablemos" },
+    "url": "#contact"
+  },
+  {
+    "name": { "en": "Quotation & Information Management System", "es": "Sistema de Cotizaciones y Gestión de Información" },
+    "subtitle": { "en": "Web application · quotations · document generation", "es": "Aplicación web · cotizaciones · generación de documentos" },
+    "content": {
+      "en": "Client-server web application for managing information, services, quotations and automated document delivery.",
+      "es": "Aplicación web cliente-servidor para administrar información, servicios, cotizaciones y entrega automatizada de documentos."
+    },
+    "details": {
+      "en": [
+        "Built quotation, history, service and category management flows.",
+        "Generated PDFs dynamically and delivered documents by email.",
+        "Deployed a local network architecture for access from multiple workstations."
+      ],
+      "es": [
+        "Construcción de flujos de cotización, historial, servicios y categorías.",
+        "Generación dinámica de PDFs y envío de documentos por correo electrónico.",
+        "Despliegue de una arquitectura en red local para acceso desde múltiples equipos de trabajo."
+      ]
+    },
+    "tech": ["Node.js", "Express", "SQLite", "JavaScript", "PDFKit", "Nodemailer"],
+    "category": "5ig",
+    "featured": true,
+    "avatar": "/projects/professional-quotation-system-ai.png",
+    "note": { "en": "Concept image generated with AI", "es": "Imagen conceptual generada con IA" },
+    "linkLabel": { "en": "Let’s talk", "es": "Hablemos" },
+    "url": "#contact"
+  },
+  {
+    "name": { "en": "MGPB", "es": "MGPB" },
+    "subtitle": { "en": "Academic Project", "es": "Proyecto Académico" },
+    "content": { "en": "Web application for microservice generation based on a product backlog.", "es": "Aplicación web para generación de microservicios a partir de un product backlog." },
+    "details": {
+      "en": ["Transforms product backlog information into candidate microservice groupings.", "Part of research focused on software architecture and AI-assisted analysis."],
+      "es": ["Transforma información de un product backlog en agrupaciones candidatas de microservicios.", "Parte de una investigación enfocada en arquitectura de software y análisis asistido por IA."]
+    },
+    "tech": ["Django", "React", "NLP", "Clustering"],
+    "category": "academic",
+    "featured": false,
+    "avatar": "/projects/mbpg.png",
+    "note": { "en": "Repository available", "es": "Repositorio disponible" },
+    "linkLabel": { "en": "View project", "es": "Ver proyecto" },
+    "url": "https://github.com/sebasgc215/EBPM-main"
+  },
+  {
+    "name": { "en": "Microservice Visualization", "es": "Visualización de Microservicios" },
+    "subtitle": { "en": "Academic Project", "es": "Proyecto Académico" },
+    "content": { "en": "Web application for visualizing generated microservices and evaluating architecture metrics.", "es": "Aplicación web para visualizar microservicios generados y evaluar métricas de arquitectura." },
+    "details": {
+      "en": ["Displays generated service distributions and evaluation results.", "Uses semantic similarity techniques to support architecture analysis."],
+      "es": ["Muestra distribuciones de servicios generados y resultados de evaluación.", "Utiliza técnicas de similitud semántica para apoyar el análisis de arquitectura."]
+    },
+    "tech": ["Django", "React", "NLP"],
+    "category": "academic",
+    "featured": false,
+    "avatar": "/projects/visualizador.png",
+    "note": { "en": "Repository available", "es": "Repositorio disponible" },
+    "linkLabel": { "en": "View project", "es": "Ver proyecto" },
+    "url": "https://github.com/fauchx/MicroserviceVisualization"
+  },
+  {
+    "name": { "en": "Sports Event Planning", "es": "Planificación de Eventos Deportivos" },
+    "subtitle": { "en": "Academic Project", "es": "Proyecto Académico" },
+    "content": { "en": "Scheduling application that solves sports calendar planning problems using constraint programming.", "es": "Aplicación de planificación que resuelve problemas de calendarios deportivos mediante programación por restricciones." },
+    "details": {
+      "en": ["Models team and distance constraints to generate optimized schedules.", "Provides a web interface for configuring and visualizing planning scenarios."],
+      "es": ["Modela restricciones de equipos y distancias para generar calendarios optimizados.", "Ofrece una interfaz web para configurar y visualizar escenarios de planificación."]
+    },
+    "tech": ["TypeScript", "JavaScript", "MiniZinc"],
+    "category": "academic",
+    "featured": false,
+    "avatar": "/projects/caldep.png",
+    "note": { "en": "Repository available", "es": "Repositorio disponible" },
+    "linkLabel": { "en": "View project", "es": "Ver proyecto" },
+    "url": "https://github.com/fauchx/CalDepF"
+  },
+  {
+    "name": { "en": "Swipe Match", "es": "Swipe Match" },
+    "subtitle": { "en": "Frontend Practice", "es": "Práctica Frontend" },
+    "content": { "en": "Frontend recreation of Tinder's swipe interaction.", "es": "Recreación frontend de la interacción de swipe de Tinder." },
+    "details": { "en": ["Focused on DOM interaction, gestures and responsive UI behavior."], "es": ["Enfocado en interacción con el DOM, gestos y comportamiento responsive de la interfaz."] },
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "category": "academic",
+    "featured": false,
+    "avatar": "/projects/swipe-match.png",
+    "note": { "en": "Repository available", "es": "Repositorio disponible" },
+    "linkLabel": { "en": "View project", "es": "Ver proyecto" },
+    "url": "https://github.com/fauchx/Clon-Swipe-Match-Tinder"
+  },
+  {
+    "name": { "en": "Coinbase UI", "es": "Coinbase UI" },
+    "subtitle": { "en": "Frontend Practice", "es": "Práctica Frontend" },
+    "content": { "en": "Responsive recreation of the Coinbase homepage.", "es": "Recreación responsive de la página principal de Coinbase." },
+    "details": { "en": ["Built to practice component structure, responsive layouts and SASS styling."], "es": ["Construido para practicar estructura de componentes, layouts responsive y estilos con SASS."] },
+    "tech": ["HTML", "CSS", "SASS"],
+    "category": "academic",
+    "featured": false,
+    "avatar": "/projects/coinbase.png",
+    "note": { "en": "Repository available", "es": "Repositorio disponible" },
+    "linkLabel": { "en": "View project", "es": "Ver proyecto" },
+    "url": "https://github.com/fauchx/HTML-SASS-Project"
+  },
+  {
+    "name": { "en": "Realtime Chat", "es": "Chat en Tiempo Real" },
+    "subtitle": { "en": "Backend Practice", "es": "Práctica Backend" },
+    "content": { "en": "Realtime chat application using WebSockets.", "es": "Aplicación de chat en tiempo real utilizando WebSockets." },
+    "details": { "en": ["Implements realtime bidirectional messaging with Socket.IO and Express."], "es": ["Implementa mensajería bidireccional en tiempo real con Socket.IO y Express."] },
+    "tech": ["Node.js", "Express", "Socket.IO"],
+    "category": "academic",
+    "featured": false,
+    "avatar": "/projects/chat-realtime.png",
+    "note": { "en": "Repository available", "es": "Repositorio disponible" },
+    "linkLabel": { "en": "View project", "es": "Ver proyecto" },
+    "url": "https://github.com/fauchx/ChatRealTime"
+  }
+]
