@@ -210,13 +210,13 @@ import '@fontsource-variable/encode-sans';
 
   document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-  const setPortfolioLanguage = (lang) => {
+  const setPortfolioLanguage = (lang: string) => {
     const normalized = lang === 'es' ? 'es' : 'en';
     document.documentElement.dataset.lang = normalized;
     document.documentElement.lang = normalized;
     localStorage.setItem('portfolio-language', normalized);
 
-    document.querySelectorAll('[data-lang-toggle]').forEach((button) => {
+    document.querySelectorAll<HTMLElement>('[data-lang-toggle]').forEach((button) => {
       const isActive = button.dataset.langToggle === normalized;
       button.classList.toggle('active', isActive);
       button.setAttribute('aria-pressed', String(isActive));
@@ -225,7 +225,7 @@ import '@fontsource-variable/encode-sans';
 
   setPortfolioLanguage(localStorage.getItem('portfolio-language') || 'en');
 
-  document.querySelectorAll('[data-lang-toggle]').forEach((button) => {
+  document.querySelectorAll<HTMLElement>('[data-lang-toggle]').forEach((button) => {
     button.addEventListener('click', () => setPortfolioLanguage(button.dataset.langToggle || 'en'));
   });
 </script>

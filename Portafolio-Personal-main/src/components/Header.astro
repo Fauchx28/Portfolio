@@ -106,5 +106,7 @@
     { rootMargin: '-30% 0px -55% 0px', threshold: [0, .2, .5] }
   );
 
-  sections.forEach((section) => observer.observe(section));
+  sections.forEach((section) => {
+    if (section) observer.observe(section);
+  });
 </script>
