@@ -16,20 +16,25 @@ import '@fontsource-variable/encode-sans';
       name="description"
       content="Portfolio of Fabián Andrés Urrutia, Systems Engineer focused on software development, automation, integrations and solution design."
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+    <div class="pointer-glow" aria-hidden="true"></div>
+
     <div class="art-layer" aria-hidden="true">
       <span class="art-shape art-red"></span>
       <span class="art-shape art-purple"></span>
       <span class="art-shape art-green"></span>
       <span class="art-line art-line-one"></span>
       <span class="art-line art-line-two"></span>
+      <span class="art-ring art-ring-one"></span>
     </div>
+
     <Header />
     <slot />
   </body>
@@ -56,6 +61,9 @@ import '@fontsource-variable/encode-sans';
   }
 
   html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
     font-family: 'Encode Sans Variable', sans-serif;
     scroll-behavior: smooth;
     scroll-padding-top: 6.5rem;
@@ -71,14 +79,24 @@ import '@fontsource-variable/encode-sans';
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
     color: var(--ink);
     background:
-      linear-gradient(rgba(255,255,255,.97), rgba(255,255,255,.97)),
-      radial-gradient(circle at 1px 1px, rgba(17,17,17,.075) 1px, transparent 0);
+      linear-gradient(rgba(255,255,255,.975), rgba(255,255,255,.975)),
+      radial-gradient(circle at 1px 1px, rgba(17,17,17,.07) 1px, transparent 0);
     background-size: auto, 34px 34px;
+  }
+
+  .portfolio-main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: clip;
   }
 
   main,
@@ -87,9 +105,50 @@ import '@fontsource-variable/encode-sans';
     z-index: 2;
   }
 
+  img,
+  svg,
+  video {
+    max-width: 100%;
+  }
+
   ::selection {
     color: #fff;
     background: var(--purple);
+  }
+
+  .scroll-progress {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    pointer-events: none;
+    background: transparent;
+  }
+
+  .scroll-progress span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--red), var(--purple) 48%, var(--green));
+    box-shadow: 0 0 12px rgba(104,71,168,.22);
+    transition: width .08s linear;
+  }
+
+  .pointer-glow {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 22rem;
+    height: 22rem;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(circle, rgba(104,71,168,.065), rgba(47,125,90,.025) 38%, transparent 70%);
+    transform: translate3d(-50%, -50%, 0);
+    transition: opacity .3s ease;
   }
 
   .art-layer {
@@ -101,10 +160,15 @@ import '@fontsource-variable/encode-sans';
   }
 
   .art-shape,
-  .art-line {
+  .art-line,
+  .art-ring {
     position: absolute;
     display: block;
-    opacity: .12;
+  }
+
+  .art-shape {
+    opacity: .105;
+    animation: art-float 16s ease-in-out infinite alternate;
   }
 
   .art-red {
@@ -125,6 +189,7 @@ import '@fontsource-variable/encode-sans';
     background: var(--purple);
     clip-path: polygon(4% 41%, 100% 0, 86% 74%, 0 100%);
     transform: rotate(-12deg);
+    animation-delay: -5s;
   }
 
   .art-green {
@@ -135,6 +200,7 @@ import '@fontsource-variable/encode-sans';
     background: var(--green);
     clip-path: polygon(17% 0, 100% 18%, 78% 100%, 0 81%);
     transform: rotate(9deg);
+    animation-delay: -9s;
   }
 
   .art-line {
@@ -142,7 +208,7 @@ import '@fontsource-variable/encode-sans';
     height: 8rem;
     border-left: 2px solid #111;
     border-top: 2px solid #111;
-    opacity: .08;
+    opacity: .07;
   }
 
   .art-line-one {
@@ -159,6 +225,17 @@ import '@fontsource-variable/encode-sans';
     transform: rotate(-17deg) skew(12deg);
   }
 
+  .art-ring {
+    left: 18%;
+    top: 68%;
+    width: 7rem;
+    height: 7rem;
+    border: 1.1rem solid var(--purple);
+    opacity: .035;
+    transform: rotate(14deg);
+    animation: ring-drift 20s ease-in-out infinite alternate;
+  }
+
   .section-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -170,13 +247,14 @@ import '@fontsource-variable/encode-sans';
     font-weight: 900;
     letter-spacing: .14em;
     color: #4a4e57;
-    background: rgba(255,255,255,.92);
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 6px 16px rgba(17,17,17,.025);
   }
 
   .reveal {
     opacity: 0;
-    transform: translateY(22px);
-    transition: opacity .72s cubic-bezier(.2,.75,.2,1), transform .72s cubic-bezier(.2,.75,.2,1);
+    transform: translateY(20px);
+    transition: opacity .68s cubic-bezier(.2,.75,.2,1), transform .68s cubic-bezier(.2,.75,.2,1);
   }
 
   .reveal.is-visible {
@@ -184,8 +262,43 @@ import '@fontsource-variable/encode-sans';
     transform: translateY(0);
   }
 
+  @keyframes art-float {
+    0% { translate: 0 0; rotate: 0deg; }
+    100% { translate: 0 18px; rotate: 2deg; }
+  }
+
+  @keyframes ring-drift {
+    0% { transform: translateY(0) rotate(14deg); }
+    100% { transform: translateY(-24px) rotate(22deg); }
+  }
+
+  @media (max-width: 767px) {
+    html { scroll-padding-top: 5.4rem; }
+
+    .pointer-glow { display: none; }
+
+    .art-shape { opacity: .055; }
+    .art-line { opacity: .04; }
+    .art-ring { opacity: .025; }
+
+    /* Mobile fallback: tall sections such as Projects must never remain invisible
+       if an observer is delayed or the section is taller than the viewport. */
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    body:hover .pointer-glow { opacity: 1; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+
+    .art-shape,
+    .art-ring { animation: none; }
+
     .reveal,
     .reveal.is-visible {
       opacity: 1;
@@ -205,10 +318,34 @@ import '@fontsource-variable/encode-sans';
         }
       });
     },
-    { threshold: 0.12 }
+    {
+      /* A low threshold is important for mobile because sections such as
+         Projects are taller than the viewport and can never reach 12%. */
+      threshold: 0.01,
+      rootMargin: '0px 0px -5% 0px'
+    }
   );
 
-  document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+  document.querySelectorAll<HTMLElement>('.reveal').forEach((element) => revealObserver.observe(element));
+
+  const progress = document.querySelector<HTMLElement>('.scroll-progress span');
+  const updateProgress = () => {
+    if (!progress) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const value = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    progress.style.width = `${value * 100}%`;
+  };
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+
+  const glow = document.querySelector<HTMLElement>('.pointer-glow');
+  if (glow && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    window.addEventListener('pointermove', (event) => {
+      glow.style.left = `${event.clientX}px`;
+      glow.style.top = `${event.clientY}px`;
+    }, { passive: true });
+  }
 
   const setPortfolioLanguage = (lang: string) => {
     const normalized = lang === 'es' ? 'es' : 'en';

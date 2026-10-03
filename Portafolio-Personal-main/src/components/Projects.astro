@@ -2,7 +2,7 @@
 import data from "../items/data/projects.json";
 ---
 
-<div class="reveal">
+<div class="reveal projects-section">
   <div class="projects-heading mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
     <div>
       <span class="section-eyebrow"><span class="lang-en">SELECTED WORK</span><span class="lang-es">TRABAJO SELECCIONADO</span></span>
@@ -11,7 +11,7 @@ import data from "../items/data/projects.json";
       <p class="lang-es mt-4 max-w-2xl text-gray-600">Trabajo profesional de software junto con proyectos académicos y personales seleccionados.</p>
     </div>
 
-    <div class="flex flex-wrap gap-2" aria-label="Project filters">
+    <div class="project-filter-wrap" aria-label="Project filters">
       <button class="filter-btn active" type="button" data-filter="all"><span class="lang-en">All</span><span class="lang-es">Todos</span></button>
       <button class="filter-btn" type="button" data-filter="5ig"><span class="lang-en">5IG Client Work</span><span class="lang-es">Trabajo 5IG</span></button>
       <button class="filter-btn" type="button" data-filter="academic"><span class="lang-en">Academic & Personal</span><span class="lang-es">Académicos y Personales</span></button>
@@ -19,8 +19,13 @@ import data from "../items/data/projects.json";
   </div>
 
   <div class="projects-grid grid gap-7 md:grid-cols-2">
-    {data.map((project) => (
-      <article class:list={["project-card", project.featured && "featured-project"]} data-category={project.category}>
+    {data.map((project, index) => (
+      <article
+        class:list={["project-card", project.featured && "featured-project"]}
+        data-category={project.category}
+        data-project-card
+        style={`--project-order:${index}`}
+      >
         <a class="project-media group" href={project.url} target={project.url.startsWith('http') ? '_blank' : undefined} rel="noopener">
           <img src={project.avatar} alt={project.name.en} loading="lazy" />
         </a>
@@ -40,8 +45,8 @@ import data from "../items/data/projects.json";
           <p class="lang-es mt-2 leading-relaxed text-gray-600">{project.content.es}</p>
 
           <ul class="project-details mt-4">
-            {project.details.en.map((detail, index) => (
-              <li><span class="lang-en">{detail}</span><span class="lang-es">{project.details.es[index]}</span></li>
+            {project.details.en.map((detail, detailIndex) => (
+              <li><span class="lang-en">{detail}</span><span class="lang-es">{project.details.es[detailIndex]}</span></li>
             ))}
           </ul>
 
@@ -49,8 +54,10 @@ import data from "../items/data/projects.json";
             {project.tech.map((tech) => <span class="tech-chip">{tech}</span>)}
           </div>
 
-          <div class="mt-5 flex items-center justify-between gap-4">
-            <span class="project-note"><span class="lang-en">{project.note.en}</span><span class="lang-es">{project.note.es}</span></span>
+          <div class="project-footer mt-5 flex items-center gap-4">
+            {project.category !== '5ig' && project.note.en && (
+              <span class="project-note"><span class="lang-en">{project.note.en}</span><span class="lang-es">{project.note.es}</span></span>
+            )}
             <a class="project-link" href={project.url} target={project.url.startsWith('http') ? '_blank' : undefined} rel="noopener">
               <span class="lang-en">{project.linkLabel.en}</span><span class="lang-es">{project.linkLabel.es}</span> ↗
             </a>
@@ -62,6 +69,14 @@ import data from "../items/data/projects.json";
 </div>
 
 <style>
+  .projects-section { min-width: 0; }
+
+  .project-filter-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
   .filter-btn {
     border: 1px solid #dedee2;
     border-radius: 9999px;
@@ -70,22 +85,56 @@ import data from "../items/data/projects.json";
     font-weight: 820;
     color: #646973;
     background: rgba(255,255,255,.94);
-    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
   }
 
-  .filter-btn:hover { transform: translateY(-2px); border-color: var(--purple); }
-  .filter-btn.active { color: #fff; background: var(--ink); border-color: var(--ink); }
+  .filter-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--purple);
+    box-shadow: 0 7px 18px rgba(104,71,168,.08);
+  }
+
+  .filter-btn.active {
+    color: #fff;
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .projects-grid { min-width: 0; }
 
   .project-card {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    position: relative;
+    min-width: 0;
     overflow: hidden;
     border: 1px solid #e7e7ea;
     border-radius: 1.15rem;
-    background: rgba(255,255,255,.97);
+    background: rgba(255,255,255,.98);
     box-shadow: 0 14px 36px rgba(17,17,17,.05);
+    transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    transform-style: preserve-3d;
     transition: transform .32s cubic-bezier(.2,.75,.2,1), box-shadow .32s ease, border-color .32s ease;
   }
 
-  .project-card:hover { transform: translateY(-6px); box-shadow: 0 26px 55px rgba(17,17,17,.1); border-color: #d4d4d8; }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(circle at var(--shine-x, 50%) var(--shine-y, 50%), rgba(255,255,255,.56), transparent 32%);
+    transition: opacity .25s ease;
+  }
+
+  .project-card:hover {
+    box-shadow: 0 28px 58px rgba(17,17,17,.11);
+    border-color: #d4d4d8;
+  }
+
+  .project-card:hover::before { opacity: .55; }
   .project-card.is-hidden { display: none !important; }
   .featured-project { border-color: #dfd8ef; }
 
@@ -101,7 +150,7 @@ import data from "../items/data/projects.json";
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(17,17,17,.08), transparent 50%);
+    background: linear-gradient(to top, rgba(17,17,17,.13), transparent 48%);
     pointer-events: none;
   }
 
@@ -112,25 +161,14 @@ import data from "../items/data/projects.json";
     transition: transform .55s cubic-bezier(.2,.75,.2,1), filter .45s ease;
   }
 
-  .project-card:hover .project-media img { transform: scale(1.035); filter: saturate(.92) contrast(1.02); }
+  .project-card:hover .project-media img { transform: scale(1.045); filter: saturate(.94) contrast(1.02); }
 
-  .image-label {
-    position: absolute;
+  .project-content {
+    position: relative;
     z-index: 2;
-    right: .8rem;
-    bottom: .8rem;
-    border: 1px solid rgba(255,255,255,.75);
-    border-radius: 9999px;
-    padding: .34rem .55rem;
-    font-size: .58rem;
-    font-weight: 900;
-    letter-spacing: .11em;
-    color: var(--ink);
-    background: rgba(255,255,255,.9);
-    backdrop-filter: blur(8px);
+    padding: 1.3rem;
+    background: rgba(255,255,255,.97);
   }
-
-  .project-content { padding: 1.3rem; }
 
   .client-badge {
     border-radius: 9999px;
@@ -164,9 +202,12 @@ import data from "../items/data/projects.json";
     font-weight: 780;
     color: #4e535d;
     background: #fafafa;
+    transition: transform .2s ease, border-color .2s ease, color .2s ease;
   }
 
-  .project-note { font-size: .69rem; font-weight: 650; color: #9a9ea6; }
+  .tech-chip:hover { transform: translateY(-2px); border-color: var(--purple); color: var(--purple); }
+  .project-footer { justify-content: flex-end; }
+  .project-note { margin-right: auto; font-size: .69rem; font-weight: 650; color: #9a9ea6; }
   .project-link { flex-shrink: 0; font-size: .8rem; font-weight: 900; color: var(--purple); transition: transform .2s ease, color .2s ease; }
   .project-link:hover { transform: translate(2px,-2px); color: var(--red); }
 
@@ -177,15 +218,62 @@ import data from "../items/data/projects.json";
       grid-template-columns: .95fr 1.05fr;
     }
 
-    /* Important: prevents the first 5IG card from leaking into Academic & Personal. */
     .featured-project:first-child.is-hidden { display: none !important; }
     .featured-project:first-child .project-media { height: 100%; min-height: 355px; }
+  }
+
+  @media (max-width: 767px) {
+    .projects-heading { min-width: 0; }
+
+    .project-filter-wrap {
+      width: 100%;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: .08rem .05rem .45rem;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+
+    .project-filter-wrap::-webkit-scrollbar { display: none; }
+    .filter-btn { flex: 0 0 auto; }
+
+    .projects-grid {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) !important;
+      width: 100%;
+      max-width: 100%;
+      gap: 1.15rem;
+    }
+
+    .project-card,
+    .featured-project:first-child {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      grid-column: auto;
+      transform: none !important;
+    }
+
+    .project-card.is-hidden,
+    .featured-project:first-child.is-hidden { display: none !important; }
+
+    .project-media,
+    .featured-project:first-child .project-media {
+      width: 100%;
+      height: clamp(12rem, 58vw, 16.5rem);
+      min-height: 0;
+    }
+
+    .project-content { padding: 1.05rem; }
+    .project-details { font-size: .84rem; }
+    .project-footer { align-items: flex-end; }
+    .project-note { max-width: 60%; }
   }
 </style>
 
 <script>
-  const filterButtons = [...document.querySelectorAll<HTMLElement>('.filter-btn')];
-  const projectCards = [...document.querySelectorAll<HTMLElement>('.project-card')];
+  const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('.filter-btn')];
+  const projectCards = [...document.querySelectorAll<HTMLElement>('[data-project-card]')];
 
   const applyFilter = (filter: string) => {
     filterButtons.forEach((item) => item.classList.toggle('active', item.dataset.filter === filter));
@@ -198,4 +286,27 @@ import data from "../items/data/projects.json";
 
   filterButtons.forEach((button) => button.addEventListener('click', () => applyFilter(button.dataset.filter || 'all')));
   applyFilter('all');
+
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    projectCards.forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const rotateY = (x - .5) * 3.2;
+        const rotateX = (.5 - y) * 3.2;
+        card.style.setProperty('--tilt-x', `${rotateX}deg`);
+        card.style.setProperty('--tilt-y', `${rotateY}deg`);
+        card.style.setProperty('--shine-x', `${x * 100}%`);
+        card.style.setProperty('--shine-y', `${y * 100}%`);
+      });
+
+      card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+        card.style.setProperty('--shine-x', '50%');
+        card.style.setProperty('--shine-y', '50%');
+      });
+    });
+  }
 </script>

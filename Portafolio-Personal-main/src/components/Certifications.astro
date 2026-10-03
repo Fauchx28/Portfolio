@@ -1,0 +1,332 @@
+---
+const certifications = [
+  {
+    date: { en: 'Oct 2026', es: 'Oct 2026' },
+    provider: 'Udemy',
+    title: {
+      en: 'n8n + MCP: Automation & Intelligent AI Agents',
+      es: 'n8n + MCP: Automatización y agentes de IA inteligentes'
+    },
+    accent: 'green',
+    url: 'https://www.udemy.com/certificate/UC-5d972473-14a9-4716-97ef-0e8e4b7e5c21/'
+  },
+  {
+    date: { en: 'Aug 2026', es: 'Ago 2026' },
+    provider: 'Platzi',
+    title: {
+      en: 'Artificial Intelligence for Product Discovery & Product Design',
+      es: 'Inteligencia Artificial para Product Discovery y Product Design'
+    },
+    accent: 'purple',
+    url: 'https://platzi.com/p/fabian.urrutia/curso/7961-ia-product-discovery/diploma/detalle/'
+  },
+  {
+    date: { en: 'Jul 2026', es: 'Jul 2026' },
+    provider: 'SENA',
+    title: {
+      en: 'Scrum Framework for Software Development Projects',
+      es: 'Aplicación del Marco de Trabajo Scrum para Proyectos de Desarrollo de Software'
+    },
+    accent: 'green',
+    url: 'https://drive.google.com/file/d/100oZzRI9-smVVnTbUhW3vI0GW4IPB-ZA/view?usp=sharing'
+  },
+  {
+    date: { en: 'Jul 2026', es: 'Jul 2026' },
+    provider: 'Platzi',
+    title: { en: 'Web Optimization', es: 'Optimización Web' },
+    accent: 'red',
+    url: 'https://platzi.com/p/fabian.urrutia/curso/1973-web-performance/diploma/detalle/'
+  },
+  {
+    date: { en: 'Jun 2026', es: 'Jun 2026' },
+    provider: 'Platzi',
+    title: { en: 'JavaScript: DOM Manipulation', es: 'JavaScript: Manipulación del DOM' },
+    accent: 'black',
+    url: 'https://platzi.com/p/fabian.urrutia/curso/10135-document-object-model/diploma/detalle/'
+  },
+  {
+    date: { en: 'Mar 2026', es: 'Mar 2026' },
+    provider: 'Politécnico de Suramérica',
+    title: { en: 'Technology Project Management', es: 'Gerencia de Proyectos Tecnológicos' },
+    accent: 'purple',
+    url: 'https://api-certificate.polisura.edu.co/certificate.php?data=LVYBQBxdGAReWCxrbHMjJl0KQlgLPicJEA5aVwsVGg97MD1qJndcCBUKEjx2DRRGSFAJBFJoITMsMywkBQ0XHENidghAFUMEXF0HAg=='
+  },
+  {
+    date: { en: 'Jan 2026', es: 'Ene 2026' },
+    provider: 'Udemy',
+    title: { en: 'Microsoft Power Automate: Automation, AI & Data', es: 'Microsoft Power Automate: Automatización, IA y Datos' },
+    accent: 'green',
+    url: 'https://www.udemy.com/certificate/UC-e607542a-ea69-437f-9fb7-3e8ed69e42e0/'
+  },
+  {
+    date: { en: 'Dec 2025', es: 'Dic 2025' },
+    provider: 'Udemy',
+    title: { en: 'React, Flask, Python, MySQL & ChatGPT AI — Full Stack App', es: 'React, Flask, Python, MySQL y ChatGPT IA — App Full Stack' },
+    accent: 'red',
+    url: 'https://www.udemy.com/certificate/UC-5c73f98c-f8a5-4b91-b949-b79807b079ef/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com'
+  }
+];
+---
+
+
+<div class="reveal certifications-section">
+  <div class="cert-heading">
+    <div>
+      <span class="section-eyebrow"><span class="lang-en">CONTINUOUS LEARNING</span><span class="lang-es">APRENDIZAJE CONTINUO</span></span>
+      <h2 class="mt-3 text-4xl font-black tracking-tight text-gray-950 sm:text-6xl"><span class="lang-en">Certifications</span><span class="lang-es">Certificaciones</span></h2>
+    </div>
+    <p class="lang-en cert-intro">Training across software development, automation, product discovery and technology project management.</p>
+    <p class="lang-es cert-intro">Formación en desarrollo de software, automatización, product discovery y gestión de proyectos tecnológicos.</p>
+  </div>
+
+  <div class="cert-grid">
+    {certifications.map((cert, index) => (
+      <a
+        class:list={['cert-card', `cert-${cert.accent}`]}
+        href={cert.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`View ${cert.title.en} credential`}
+      >
+        <div class="cert-card-top">
+          <span class="cert-index">{String(index + 1).padStart(2, '0')}</span>
+          <span class="cert-date"><span class="lang-en">{cert.date.en}</span><span class="lang-es">{cert.date.es}</span></span>
+        </div>
+
+        <div class="cert-body">
+          <span class="cert-provider">{cert.provider}</span>
+          <h3><span class="lang-en">{cert.title.en}</span><span class="lang-es">{cert.title.es}</span></h3>
+        </div>
+
+        <div class="cert-footer">
+          <span class="cert-link-label">
+            <span class="lang-en">View credential</span>
+            <span class="lang-es">Ver credencial</span>
+          </span>
+          <span class="cert-arrow" aria-hidden="true">↗</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .certifications-section {
+    position: relative;
+  }
+
+  .cert-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, .72fr);
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 2.75rem;
+  }
+
+  .cert-intro {
+    max-width: 34rem;
+    justify-self: end;
+    line-height: 1.7;
+    color: #656a74;
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    align-items: stretch;
+  }
+
+  .cert-card {
+    --cert-accent: var(--ink);
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 15rem;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e5e5e8;
+    border-radius: 1.15rem;
+    padding: 1.35rem 1.4rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255,255,255,.98);
+    box-shadow: 0 10px 28px rgba(17,17,17,.04);
+    transition: transform .28s cubic-bezier(.2,.75,.2,1), box-shadow .28s ease, border-color .28s ease;
+  }
+
+  .cert-card::before {
+    content: '';
+    position: absolute;
+    right: -2.25rem;
+    bottom: -2.5rem;
+    width: 8rem;
+    height: 8rem;
+    border: 1.35rem solid var(--cert-accent);
+    opacity: .045;
+    transform: rotate(17deg);
+    pointer-events: none;
+  }
+
+  .cert-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--cert-accent);
+    transform: scaleY(.28);
+    transform-origin: top;
+    transition: transform .3s ease;
+  }
+
+  .cert-card:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--cert-accent) 24%, #e5e5e8);
+    box-shadow: 0 22px 44px rgba(17,17,17,.085);
+  }
+
+  .cert-card:hover::after {
+    transform: scaleY(1);
+  }
+
+  .cert-purple { --cert-accent: var(--purple); }
+  .cert-green { --cert-accent: var(--green); }
+  .cert-red { --cert-accent: var(--red); }
+  .cert-black { --cert-accent: var(--ink); }
+
+  .cert-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .cert-index {
+    font-size: .64rem;
+    font-weight: 900;
+    letter-spacing: .14em;
+    color: #acafb5;
+  }
+
+  .cert-date {
+    flex-shrink: 0;
+    font-size: .7rem;
+    font-weight: 780;
+    color: #8f939b;
+  }
+
+  .cert-body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .85rem;
+    margin-top: 1.25rem;
+  }
+
+  .cert-provider {
+    border-radius: 9999px;
+    padding: .35rem .62rem;
+    font-size: .68rem;
+    font-weight: 900;
+    color: var(--cert-accent);
+    background: #f7f7f8;
+  }
+
+  .cert-card h3 {
+    max-width: 100%;
+    margin: 0;
+    overflow-wrap: anywhere;
+    font-size: clamp(1rem, 1.65vw, 1.2rem);
+    font-weight: 850;
+    line-height: 1.42;
+    color: var(--ink);
+  }
+
+  .cert-footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f2;
+  }
+
+  .cert-link-label {
+    font-size: .72rem;
+    font-weight: 850;
+    color: var(--cert-accent);
+    opacity: .76;
+    transition: opacity .25s ease, transform .25s ease;
+  }
+
+  .cert-arrow {
+    flex-shrink: 0;
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--cert-accent);
+    opacity: .62;
+    transition: transform .25s ease, opacity .25s ease;
+  }
+
+  .cert-card:hover .cert-link-label {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  .cert-card:hover .cert-arrow {
+    transform: translate(2px,-2px);
+    opacity: 1;
+  }
+
+  @media (max-width: 1100px) {
+    .cert-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .cert-card {
+      min-height: 13.5rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .cert-heading {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cert-intro {
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .cert-grid {
+      grid-template-columns: 1fr;
+      gap: .95rem;
+    }
+
+    .cert-card {
+      min-height: 0;
+      padding: 1.2rem;
+    }
+
+    .cert-body {
+      margin-top: 1rem;
+      gap: .72rem;
+    }
+
+    .cert-footer {
+      margin-top: 1.25rem;
+    }
+  }
+</style>

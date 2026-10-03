@@ -1,71 +1,385 @@
 ---
 const groups = [
   {
+    id: 'frontend',
+    icon: '</>',
     title: { en: 'Frontend', es: 'Frontend' },
-    accent: 'tech-red',
+    description: {
+      en: 'Interfaces focused on responsive behavior, maintainable components and clear user experiences.',
+      es: 'Interfaces enfocadas en comportamiento responsive, componentes mantenibles y experiencias de usuario claras.'
+    },
+    accent: 'red',
     items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Astro', 'Tailwind', 'Bootstrap']
   },
   {
+    id: 'backend',
+    icon: '{ }',
     title: { en: 'Backend & Data', es: 'Backend y Datos' },
-    accent: 'tech-green',
+    description: {
+      en: 'APIs, business logic, persistence and services that connect products with reliable data flows.',
+      es: 'APIs, lógica de negocio, persistencia y servicios que conectan productos con flujos de datos confiables.'
+    },
+    accent: 'green',
     items: ['Node.js', 'Express', 'Python', 'Django', 'Flask', 'Java', 'Spring Boot', 'MySQL', 'PostgreSQL', 'SQLite']
   },
   {
+    id: 'automation',
+    icon: '↻',
     title: { en: 'Automation & Integrations', es: 'Automatización e Integraciones' },
-    accent: 'tech-purple',
+    description: {
+      en: 'Workflow automation and system integrations designed to reduce manual work and connect business processes.',
+      es: 'Automatización de flujos e integraciones entre sistemas para reducir trabajo manual y conectar procesos de negocio.'
+    },
+    accent: 'purple',
     items: ['Power Automate', 'Office Scripts', 'AppSheet', 'REST APIs', 'Webhooks', 'Twilio', 'QuickBooks', 'SharePoint']
   },
   {
+    id: 'delivery',
+    icon: '◇',
     title: { en: 'Delivery & Solution Design', es: 'Entrega y Diseño de Soluciones' },
-    accent: 'tech-black',
+    description: {
+      en: 'The work around delivery: discovery, estimates, timelines, technical proposals, documentation and collaboration.',
+      es: 'El trabajo alrededor de la entrega: discovery, estimaciones, timelines, propuestas técnicas, documentación y colaboración.'
+    },
+    accent: 'black',
     items: ['Git', 'GitHub', 'Scrum', 'Requirements Discovery', 'Timelines', 'Effort Estimation', 'Technical Proposals', 'Documentation']
   }
 ];
 ---
 
-<div class="reveal mb-10">
+<div class="reveal mb-10 tech-section">
   <div class="mb-10 text-center">
     <span class="section-eyebrow"><span class="lang-en">TOOLKIT</span><span class="lang-es">HERRAMIENTAS</span></span>
     <h2 class="mt-3 text-4xl font-black tracking-tight text-gray-950 sm:text-6xl"><span class="lang-en">Tech I Use</span><span class="lang-es">Tecnologías que Uso</span></h2>
-    <p class="lang-en mx-auto mt-4 max-w-2xl text-gray-600">Technologies I use to move from requirements and architecture to implementation and delivery.</p>
-    <p class="lang-es mx-auto mt-4 max-w-2xl text-gray-600">Tecnologías que utilizo para pasar de requerimientos y arquitectura a implementación y entrega.</p>
+    <p class="lang-en mx-auto mt-4 max-w-2xl text-gray-600">Explore the areas I use to move from requirements and architecture to implementation and delivery.</p>
+    <p class="lang-es mx-auto mt-4 max-w-2xl text-gray-600">Explora las áreas que utilizo para pasar de requerimientos y arquitectura a implementación y entrega.</p>
   </div>
 
-  <div class="grid gap-5 sm:grid-cols-2">
-    {groups.map((group) => (
-      <article class:list={["tech-card", group.accent]}>
-        <h3 class="text-xl font-extrabold text-gray-950"><span class="lang-en">{group.title.en}</span><span class="lang-es">{group.title.es}</span></h3>
-        <div class="mt-4 flex flex-wrap gap-2">
-          {group.items.map((item) => <span class="skill-pill">{item}</span>)}
-        </div>
-      </article>
-    ))}
+  <div class="tech-explorer">
+    <div class="tech-tabs" role="tablist" aria-label="Technology groups">
+      {groups.map((group, index) => (
+        <button
+          class:list={['tech-tab', `accent-${group.accent}`, index === 0 && 'active']}
+          type="button"
+          role="tab"
+          data-tech-target={group.id}
+          aria-selected={index === 0 ? 'true' : 'false'}
+        >
+          <span class="tech-tab-icon" aria-hidden="true">{group.icon}</span>
+          <span class="tech-tab-copy">
+            <strong><span class="lang-en">{group.title.en}</span><span class="lang-es">{group.title.es}</span></strong>
+            <small>{String(index + 1).padStart(2, '0')}</small>
+          </span>
+        </button>
+      ))}
+    </div>
+
+    <div class="tech-stage">
+      <div class="tech-stage-art tech-stage-art-one" aria-hidden="true"></div>
+      <div class="tech-stage-art tech-stage-art-two" aria-hidden="true"></div>
+      {groups.map((group, index) => (
+        <article
+          class:list={['tech-panel', `panel-${group.accent}`, index === 0 && 'active']}
+          data-tech-panel={group.id}
+          role="tabpanel"
+          aria-hidden={index === 0 ? 'false' : 'true'}
+        >
+          <div class="tech-panel-head">
+            <span class="tech-panel-number">0{index + 1}</span>
+            <div>
+              <p class="tech-panel-label"><span class="lang-en">FOCUS AREA</span><span class="lang-es">ÁREA DE ENFOQUE</span></p>
+              <h3><span class="lang-en">{group.title.en}</span><span class="lang-es">{group.title.es}</span></h3>
+            </div>
+          </div>
+
+          <p class="lang-en tech-description">{group.description.en}</p>
+          <p class="lang-es tech-description">{group.description.es}</p>
+
+          <div class="tech-cloud">
+            {group.items.map((item, itemIndex) => (
+              <span class="skill-pill" style={`--delay:${itemIndex * 35}ms`}>{item}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
   </div>
 </div>
 
 <style>
-  .tech-card {
-    border: 1px solid #e8e8ea;
-    border-radius: 1.05rem;
-    padding: 1.25rem;
-    background: rgba(255,255,255,.96);
-    box-shadow: 0 12px 30px rgba(17,17,17,.045);
-    transition: transform .27s ease, box-shadow .27s ease;
+  .tech-explorer {
+    display: grid;
+    grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+    gap: 1rem;
+    align-items: stretch;
   }
 
-  .tech-card:hover { transform: translateY(-4px); box-shadow: 0 20px 42px rgba(17,17,17,.085); }
-  .tech-red { border-top: 3px solid var(--red); }
-  .tech-green { border-top: 3px solid var(--green); }
-  .tech-purple { border-top: 3px solid var(--purple); }
-  .tech-black { border-top: 3px solid var(--ink); }
+  .tech-tabs {
+    display: grid;
+    gap: .65rem;
+  }
+
+  .tech-tab {
+    --tab-accent: var(--ink);
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: .9rem;
+    overflow: hidden;
+    border: 1px solid #e6e6e9;
+    border-radius: 1rem;
+    padding: .9rem 1rem;
+    text-align: left;
+    color: #575c66;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 8px 22px rgba(17,17,17,.035);
+    cursor: pointer;
+    transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease, color .24s ease;
+  }
+
+  .tech-tab::before {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 3px;
+    background: var(--tab-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .28s ease;
+  }
+
+  .tech-tab:hover,
+  .tech-tab.active {
+    color: var(--ink);
+    border-color: color-mix(in srgb, var(--tab-accent) 35%, #e6e6e9);
+    box-shadow: 0 15px 32px rgba(17,17,17,.065);
+    transform: translateX(4px);
+  }
+
+  .tech-tab.active::before { transform: scaleX(1); }
+  .accent-red { --tab-accent: var(--red); }
+  .accent-green { --tab-accent: var(--green); }
+  .accent-purple { --tab-accent: var(--purple); }
+  .accent-black { --tab-accent: var(--ink); }
+
+  .tech-tab-icon {
+    display: grid;
+    width: 2.7rem;
+    height: 2.7rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: .75rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .88rem;
+    font-weight: 900;
+    color: #fff;
+    background: var(--tab-accent);
+    transition: transform .28s ease;
+  }
+
+  .tech-tab:hover .tech-tab-icon,
+  .tech-tab.active .tech-tab-icon { transform: rotate(-4deg) scale(1.04); }
+
+  .tech-tab-copy {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+  }
+
+  .tech-tab-copy strong { font-size: .9rem; }
+  .tech-tab-copy small { font-size: .65rem; font-weight: 900; letter-spacing: .12em; color: #a0a3aa; }
+
+  .tech-stage {
+    position: relative;
+    min-height: 25rem;
+    overflow: hidden;
+    border: 1px solid #e6e6e9;
+    border-radius: 1.25rem;
+    background: #fff;
+    box-shadow: 0 18px 48px rgba(17,17,17,.06);
+  }
+
+  .tech-stage::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 1px 1px, rgba(17,17,17,.07) 1px, transparent 0);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(to bottom right, black, transparent 82%);
+    opacity: .35;
+  }
+
+  .tech-stage-art {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .12;
+  }
+
+  .tech-stage-art-one {
+    right: -2.5rem;
+    top: -1.5rem;
+    width: 11rem;
+    height: 8rem;
+    background: var(--purple);
+    clip-path: polygon(10% 18%, 100% 0, 86% 81%, 0 100%);
+    transform: rotate(-10deg);
+  }
+
+  .tech-stage-art-two {
+    left: 38%;
+    bottom: -3.5rem;
+    width: 9rem;
+    height: 9rem;
+    border: 1.7rem solid var(--green);
+    transform: rotate(13deg);
+  }
+
+  .tech-panel {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1.35rem, 4vw, 3rem);
+    opacity: 0;
+    transform: translateY(12px) scale(.99);
+    visibility: hidden;
+    transition: opacity .35s ease, transform .35s ease, visibility .35s;
+  }
+
+  .tech-panel.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+  }
+
+  .tech-panel-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tech-panel-number {
+    font-size: clamp(2.8rem, 7vw, 5.2rem);
+    font-weight: 950;
+    line-height: .8;
+    letter-spacing: -.08em;
+    color: #efeff1;
+  }
+
+  .tech-panel-label {
+    margin-bottom: .25rem;
+    font-size: .63rem;
+    font-weight: 900;
+    letter-spacing: .16em;
+    color: #8e929a;
+  }
+
+  .tech-panel h3 {
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: -.035em;
+    color: var(--ink);
+  }
+
+  .tech-description {
+    max-width: 44rem;
+    margin-top: 1.15rem;
+    line-height: 1.7;
+    color: #626873;
+  }
+
+  .tech-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
+    margin-top: 1.5rem;
+  }
 
   .skill-pill {
+    border: 1px solid #e2e2e6;
     border-radius: 9999px;
-    border: 1px solid #e9e9eb;
-    padding: .42rem .62rem;
-    font-size: .76rem;
-    font-weight: 750;
-    color: #535863;
-    background: #fafafa;
+    padding: .52rem .72rem;
+    font-size: .78rem;
+    font-weight: 780;
+    color: #454a54;
+    background: rgba(250,250,250,.94);
+    box-shadow: 0 4px 12px rgba(17,17,17,.025);
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  .tech-panel.active .skill-pill {
+    animation: tech-pill-in .35s ease forwards;
+    animation-delay: var(--delay);
+  }
+
+  .panel-red .skill-pill:hover { border-color: var(--red); color: var(--red); }
+  .panel-green .skill-pill:hover { border-color: var(--green); color: var(--green); }
+  .panel-purple .skill-pill:hover { border-color: var(--purple); color: var(--purple); }
+  .panel-black .skill-pill:hover { border-color: var(--ink); color: var(--ink); }
+
+  @keyframes tech-pill-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 767px) {
+    .tech-explorer { grid-template-columns: 1fr; }
+
+    .tech-tabs {
+      display: flex;
+      width: 100%;
+      overflow-x: auto;
+      gap: .55rem;
+      padding: .1rem .1rem .45rem;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+
+    .tech-tabs::-webkit-scrollbar { display: none; }
+
+    .tech-tab {
+      width: auto;
+      min-width: max-content;
+      flex: 0 0 auto;
+      padding: .7rem .78rem;
+    }
+
+    .tech-tab:hover,
+    .tech-tab.active { transform: translateY(-2px); }
+
+    .tech-tab-icon { width: 2.2rem; height: 2.2rem; }
+    .tech-tab-copy small { display: none; }
+    .tech-stage { min-height: 29rem; }
+    .tech-panel { justify-content: flex-start; padding: 1.35rem; }
+    .tech-panel-number { font-size: 3.4rem; }
   }
 </style>
+
+<script>
+  const techTabs = [...document.querySelectorAll<HTMLButtonElement>('[data-tech-target]')];
+  const techPanels = [...document.querySelectorAll<HTMLElement>('[data-tech-panel]')];
+
+  const activateTech = (target: string) => {
+    techTabs.forEach((tab) => {
+      const active = tab.dataset.techTarget === target;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+
+    techPanels.forEach((panel) => {
+      const active = panel.dataset.techPanel === target;
+      panel.classList.toggle('active', active);
+      panel.setAttribute('aria-hidden', String(!active));
+    });
+  };
+
+  techTabs.forEach((tab) => tab.addEventListener('click', () => activateTech(tab.dataset.techTarget || 'frontend')));
+</script>

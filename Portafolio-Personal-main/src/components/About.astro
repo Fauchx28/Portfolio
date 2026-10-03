@@ -115,6 +115,7 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
   .role-pill { color: #515660; }
   .status-dot,
   .badge-dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--green); }
+  .status-dot { animation: status-pulse 1.9s ease-out infinite; }
 
   .primary-cta,
   .secondary-cta {
@@ -195,6 +196,19 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
 
   .capability-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(17,17,17,.085); }
   .capability-card::before { content: ''; position: absolute; left: 0; top: 0; width: 4px; height: 100%; background: var(--ink); }
+  .capability-card::after {
+    content: '';
+    position: absolute;
+    right: -1.1rem;
+    top: -1.1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid currentColor;
+    opacity: .06;
+    transform: rotate(19deg);
+    transition: transform .35s ease, opacity .35s ease;
+  }
+  .capability-card:hover::after { transform: rotate(31deg) scale(1.12); opacity: .11; }
   .accent-black::before { background: var(--ink); }
   .accent-green::before { background: var(--green); }
   .accent-red::before { background: var(--red); }
@@ -204,6 +218,12 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
   .capability-card p { margin-top: .45rem; line-height: 1.55; color: #656b76; font-size: .9rem; }
 
   .language-chip { color: #5b6069; padding: .42rem .7rem; }
+
+  @keyframes status-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(47,125,90,.34); }
+    70% { box-shadow: 0 0 0 8px rgba(47,125,90,0); }
+    100% { box-shadow: 0 0 0 0 rgba(47,125,90,0); }
+  }
 
   @media (max-width: 1024px) {
     .portrait-wrap { max-width: 24rem; min-height: 27rem; }

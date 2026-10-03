@@ -2,6 +2,17 @@
 const { class: className = '', id } = Astro.props;
 ---
 
-<section id={id} class={`${className} w-full mx-auto max-w-6xl pb-24 sm:pb-28`}>
+<section id={id} class={`${className} portfolio-section w-full mx-auto max-w-6xl pb-24 sm:pb-28`}>
   <slot />
 </section>
+
+<style>
+  .portfolio-section {
+    position: relative;
+    min-width: 0;
+  }
+
+  @media (max-width: 640px) {
+    .portfolio-section { padding-bottom: 5.25rem; }
+  }
+</style>

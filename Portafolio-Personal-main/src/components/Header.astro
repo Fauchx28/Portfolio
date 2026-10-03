@@ -1,10 +1,11 @@
-<header class="sticky top-0 z-50 flex w-full justify-center px-3 py-4">
-  <div class="header-shell flex w-full max-w-6xl items-center justify-between gap-3">
-    <nav class="nav-shell flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-black/10 bg-white/90 px-2 py-2 shadow-[0_10px_35px_rgba(17,17,17,.06)] backdrop-blur-xl sm:gap-2">
+<header class="portfolio-header">
+  <div class="header-shell">
+    <nav class="nav-shell" aria-label="Portfolio navigation">
       <a class="nav-link" href="#about"><span class="lang-en">About</span><span class="lang-es">Inicio</span></a>
       <a class="nav-link" href="#exp"><span class="lang-en">Experience</span><span class="lang-es">Experiencia</span></a>
       <a class="nav-link" href="#projects"><span class="lang-en">Projects</span><span class="lang-es">Proyectos</span></a>
       <a class="nav-link" href="#tech"><span class="lang-en">Tech</span><span class="lang-es">Tecnologías</span></a>
+      <a class="nav-link" href="#certifications"><span class="lang-en">Certifications</span><span class="lang-es">Certificaciones</span></a>
       <a class="nav-link" href="#contact"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></a>
     </nav>
 
@@ -16,14 +17,51 @@
 </header>
 
 <style>
-  .nav-shell { scrollbar-width: none; }
+  .portfolio-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    padding: .9rem .8rem;
+    pointer-events: none;
+  }
+
+  .header-shell {
+    display: flex;
+    width: min(100%, 72rem);
+    min-width: 0;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    pointer-events: auto;
+  }
+
+  .nav-shell {
+    display: flex;
+    min-width: 0;
+    max-width: 100%;
+    align-items: center;
+    gap: .15rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    border: 1px solid rgba(17,17,17,.08);
+    border-radius: 9999px;
+    padding: .42rem;
+    background: rgba(255,255,255,.88);
+    box-shadow: 0 12px 36px rgba(17,17,17,.06);
+    backdrop-filter: blur(18px) saturate(1.15);
+  }
+
   .nav-shell::-webkit-scrollbar { display: none; }
 
   .nav-link {
     position: relative;
+    flex-shrink: 0;
     white-space: nowrap;
     border-radius: 9999px;
-    padding: .55rem .8rem;
+    padding: .58rem .82rem;
     font-size: .82rem;
     font-weight: 760;
     color: #565b66;
@@ -34,9 +72,10 @@
     content: '';
     position: absolute;
     left: 50%;
-    bottom: .2rem;
+    bottom: .18rem;
     width: 0;
     height: 2px;
+    border-radius: 99px;
     background: var(--purple);
     transform: translateX(-50%);
     transition: width .22s ease;
@@ -54,20 +93,22 @@
 
   .language-switcher {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
-    gap: .25rem;
+    gap: .2rem;
     border: 1px solid var(--line);
     border-radius: 9999px;
-    padding: .32rem;
+    padding: .3rem;
     background: rgba(255,255,255,.94);
     box-shadow: 0 10px 28px rgba(17,17,17,.055);
+    backdrop-filter: blur(14px);
   }
 
   .lang-btn {
     border: none;
     border-radius: 9999px;
-    padding: .5rem .68rem;
-    font-size: .76rem;
+    padding: .5rem .66rem;
+    font-size: .73rem;
     font-weight: 900;
     letter-spacing: .08em;
     color: #6c7078;
@@ -79,20 +120,50 @@
   .lang-btn:hover { transform: translateY(-1px); }
   .lang-btn.active { color: #fff; background: var(--ink); }
 
-  @media (max-width: 768px) {
-    .header-shell { flex-direction: column; justify-content: center; }
+  @media (max-width: 767px) {
+    .portfolio-header {
+      padding: .55rem .55rem .7rem;
+    }
+
+    .header-shell {
+      flex-direction: row;
+      overflow: hidden;
+      gap: .45rem;
+    }
+
+    .nav-shell {
+      flex: 1 1 auto;
+      width: 0;
+      max-width: none;
+      padding: .32rem;
+    }
+
+    .nav-link {
+      padding: .5rem .68rem;
+      font-size: .75rem;
+    }
+
+    .language-switcher {
+      flex: 0 0 auto;
+      padding: .25rem;
+    }
+
+    .lang-btn {
+      padding: .46rem .55rem;
+      font-size: .68rem;
+    }
   }
 
-  @media (min-width: 640px) {
-    .nav-link { padding: .6rem 1rem; font-size: .92rem; }
+  @media (min-width: 768px) {
+    .nav-link { padding-inline: .92rem; font-size: .88rem; }
   }
 </style>
 
 <script>
-  const links = [...document.querySelectorAll('.nav-link')];
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.nav-link')];
   const sections = links
     .map((link) => document.querySelector(link.getAttribute('href') ?? ''))
-    .filter((section) => section !== null);
+    .filter((section): section is Element => section !== null);
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -103,10 +174,8 @@
       if (!visible) return;
       links.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${visible.target.id}`));
     },
-    { rootMargin: '-30% 0px -55% 0px', threshold: [0, .2, .5] }
+    { rootMargin: '-22% 0px -66% 0px', threshold: [0, .05, .15] }
   );
 
-  sections.forEach((section) => {
-    if (section) observer.observe(section);
-  });
+  sections.forEach((section) => observer.observe(section));
 </script>

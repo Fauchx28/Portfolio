@@ -1,0 +1,41 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#FBFBFB"/>
+  <path d="M0 680C230 590 320 760 550 695C820 620 930 710 1160 610C1330 535 1460 560 1600 500V900H0V680Z" fill="#E7F5ED"/>
+  <rect x="78" y="85" width="1444" height="700" rx="42" fill="#FFFFFF" stroke="#E7E7EA" stroke-width="3"/>
+
+  <rect x="120" y="150" width="610" height="545" rx="32" fill="#111111"/>
+  <rect x="155" y="188" width="540" height="470" rx="24" fill="#F8F8FA"/>
+  <rect x="190" y="225" width="470" height="62" rx="18" fill="#EEE8F8"/>
+  <circle cx="224" cy="256" r="13" fill="#6847A8"/>
+  <text x="255" y="265" fill="#111111" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Production Dashboard</text>
+  <rect x="190" y="320" width="220" height="120" rx="22" fill="#E3F4EA"/>
+  <rect x="440" y="320" width="220" height="120" rx="22" fill="#F9E9EA"/>
+  <rect x="190" y="470" width="220" height="120" rx="22" fill="#F0EAF8"/>
+  <rect x="440" y="470" width="220" height="120" rx="22" fill="#F2F2F3"/>
+  <text x="220" y="355" fill="#295F47" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Inventory</text>
+  <text x="470" y="355" fill="#A7414C" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Harvest</text>
+  <text x="220" y="505" fill="#5A3B91" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Approvals</text>
+  <text x="470" y="505" fill="#44464C" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Purchasing</text>
+  <rect x="220" y="382" width="110" height="16" rx="8" fill="#48A77A"/><rect x="470" y="382" width="122" height="16" rx="8" fill="#E85662"/>
+  <rect x="220" y="532" width="135" height="16" rx="8" fill="#6847A8"/><rect x="470" y="532" width="104" height="16" rx="8" fill="#111111" fill-opacity=".7"/>
+
+  <rect x="820" y="190" width="270" height="505" rx="40" fill="#1E1F23"/>
+  <rect x="840" y="220" width="230" height="445" rx="28" fill="#FFFFFF"/>
+  <rect x="870" y="260" width="170" height="42" rx="15" fill="#E3F4EA"/>
+  <text x="955" y="288" text-anchor="middle" fill="#295F47" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Operations</text>
+  <g fill="#F5F5F7">
+    <rect x="870" y="330" width="170" height="54" rx="16"/><rect x="870" y="402" width="170" height="54" rx="16"/><rect x="870" y="474" width="170" height="54" rx="16"/><rect x="870" y="546" width="170" height="54" rx="16"/>
+  </g>
+  <circle cx="898" cy="357" r="9" fill="#48A77A"/><circle cx="898" cy="429" r="9" fill="#6847A8"/><circle cx="898" cy="501" r="9" fill="#E85662"/><circle cx="898" cy="573" r="9" fill="#111111"/>
+  <text x="920" y="363" fill="#33363B" font-family="Arial, Helvetica, sans-serif" font-size="15">Sowing</text>
+  <text x="920" y="435" fill="#33363B" font-family="Arial, Helvetica, sans-serif" font-size="15">Release</text>
+  <text x="920" y="507" fill="#33363B" font-family="Arial, Helvetica, sans-serif" font-size="15">Harvest</text>
+  <text x="920" y="579" fill="#33363B" font-family="Arial, Helvetica, sans-serif" font-size="15">Stock</text>
+
+  <path d="M1210 555C1260 430 1360 320 1460 245" stroke="#48A77A" stroke-width="18" stroke-linecap="round"/>
+  <ellipse cx="1315" cy="410" rx="72" ry="30" transform="rotate(-25 1315 410)" fill="#48A77A"/>
+  <ellipse cx="1385" cy="335" rx="70" ry="28" transform="rotate(25 1385 335)" fill="#7ABE9A"/>
+  <ellipse cx="1255" cy="490" rx="66" ry="27" transform="rotate(28 1255 490)" fill="#5BAE83"/>
+  <rect x="1180" y="605" width="255" height="72" rx="26" fill="#EEE8F8"/>
+  <text x="1307" y="650" text-anchor="middle" fill="#5A3B91" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">APP + AUTOMATION</text>
+</svg>
